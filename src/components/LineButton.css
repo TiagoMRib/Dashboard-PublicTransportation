@@ -1,0 +1,23 @@
+
+
+.blue-button {
+    background-color: blue;
+  }
+  
+  .red-button {
+    background-color: red;
+  }
+  
+  .yellow-button {
+    background-color: yellow;
+  }
+  
+  .blue-button, .red-button, .yellow-button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
