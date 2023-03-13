@@ -1,68 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import { Bar, Line, Pie } from 'react-chartjs-2';
+import React, { useRef, useEffect } from "react";
+import * as d3 from "d3";
 
-function BarChart(props) {
-  const [chartData, setChartData] = useState(props.chartData);
+const BarGraph = ({ data, width, height }) => {
+  const ref = useRef();
 
   useEffect(() => {
-    setChartData(props.chartData);
-  }, [props.chartData]);
+    const svg = d3.select(ref.current);
 
-  const defaultProps = {
-    displayTitle: true,
-    displayLegend: true,
-    legendPosition: 'right',
-    location: 'City',
-  };
+    const margin = { top: 20, right: 60, bottom: 60, left: 60 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+
+    const xScale = d3
+      .scaleBand()
+      .domain(data.map((d) => d.x))
+      .range([0, innerWidth])
+      .padding(0.5);
+
+    const yScale = d3
+      .scaleLinear()
+      .domain([0, d3.max(data, (d) => d.y)])
+      .range([innerHeight, 0]);
+
+    svg
+      .select(".x-axis")
+      .attr("transform", `translate(0, ${innerHeight})`)
+      .call(d3.axisBottom(xScale));
+
+    svg
+      .select(".y-axis")
+      .call(d3.axisLeft(yScale));
+
+    svg
+      .selectAll(".bar")
+      .data(data)
+      .enter()
+      .append("rect")
+      .attr("class", "bar")
+      .attr("x", (d) => xScale(d.x))
+      .attr("width", xScale.bandwidth())
+      .attr("y", (d) => yScale(d.y))
+      .attr("height", (d) => innerHeight - yScale(d.y));
+
+    // add labels below bars
+    /*
+    svg
+      .selectAll(".label")
+      .data(data)
+      .enter()
+      .append("text")
+      .attr("class", "label")
+      .attr("x", (d) => xScale(d.x) + xScale.bandwidth() / 2)
+      .attr("y", innerHeight + margin.bottom / 2)
+      .attr("text-anchor", "middle")
+      .text((d) => d.x); */
+
+    // add value labels on the left side
+    const valueGroup = svg
+      .append("g")
+      .attr("transform", `translate(${margin.left}, 0)`);
+
+    const yAxis = d3.axisLeft(yScale).ticks(5);
+
+    valueGroup
+      .append("g")
+      .attr("class", "y-axis")
+      .call(yAxis);
+
+    valueGroup
+      .selectAll(".value")
+      .data(data)
+      .enter()
+      .append("text")
+      .attr("class", "value")
+      .attr("x", -margin.left / 2)
+      .attr("y", (d) => yScale(d.y))
+      .attr("text-anchor", "end")
+      .text((d) => d.y);
+  }, [data, width, height]);
 
   return (
-    <div className="chart">
-      <Bar
-        data={chartData}
-        options={{
-          title: {
-            display: defaultProps.displayTitle,
-            text: 'Largest Cities In ' + defaultProps.location,
-            fontSize: 25,
-          },
-          legend: {
-            display: defaultProps.displayLegend,
-            position: defaultProps.legendPosition,
-          },
-        }}
-      />
-
-      <Line
-        data={chartData}
-        options={{
-          title: {
-            display: defaultProps.displayTitle,
-            text: 'Largest Cities In ' + defaultProps.location,
-            fontSize: 25,
-          },
-          legend: {
-            display: defaultProps.displayLegend,
-            position: defaultProps.legendPosition,
-          },
-        }}
-      />
-
-      <Pie
-        data={chartData}
-        options={{
-          title: {
-            display: defaultProps.displayTitle,
-            text: 'Largest Cities In ' + defaultProps.location,
-            fontSize: 25,
-          },
-          legend: {
-            display: defaultProps.displayLegend,
-            position: defaultProps.legendPosition,
-          },
-        }}
-      />
-    </div>
+    <svg ref={ref} width={width} height={height}>
+      <g className="x-axis" />
+    </svg>
   );
-}
+};
 
-export default BarChart;
+export default BarGraph;

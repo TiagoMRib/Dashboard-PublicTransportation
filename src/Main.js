@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import LineButton from './components/LineButton';
+import InfoPage from './components/InfoPage';
 
 function Main() {
     const [selectedNumber, setSelectedNumber] = useState(null);
@@ -19,6 +20,7 @@ function Main() {
         {selectedNumber ? (
         <div className="page">
           <h1>Line {selectedNumber}</h1>
+          <InfoPage />
         </div>
       ) : (
         <div className="content">
