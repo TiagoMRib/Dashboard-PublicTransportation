@@ -12,9 +12,9 @@ function LineButton(props) {
 
   if (props.number.toString().startsWith("2")) {
     buttonClass = "blue-button";
-  } else if (props.number.toString().startsWith("3")) {
+  } else if (props.number.toString().startsWith("7")) {
     buttonClass = "red-button";
-  } else if (props.number.toString().startsWith("4")) {
+  } else if (props.number.toString().startsWith("5")) {
     buttonClass = "yellow-button";
   }
   return (

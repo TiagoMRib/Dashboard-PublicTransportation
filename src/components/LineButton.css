@@ -1,15 +1,15 @@
 
 
 .blue-button {
-    background-color: blue;
+    background-color: #187ec2;
   }
   
   .red-button {
-    background-color: red;
+    background-color: #ff0000;
   }
   
   .yellow-button {
-    background-color: yellow;
+    background-color: #fcd116
   }
   
   .blue-button, .red-button, .yellow-button {

@@ -27,8 +27,8 @@ function Main() {
               <LineButton number={203} onClick={() => handleButtonClicked(203)} />
               <LineButton number={204} onClick={() => handleButtonClicked(204)} />
               <LineButton number={205} onClick={() => handleButtonClicked(205)} />
-              <LineButton number={301} onClick={() => handleButtonClicked(301)} />
-              <LineButton number={403} onClick={() => handleButtonClicked(403)} />
+              <LineButton number={504} onClick={() => handleButtonClicked(504)} />
+              <LineButton number={701} onClick={() => handleButtonClicked(701)} />
         </div>
         )}
       </div>
