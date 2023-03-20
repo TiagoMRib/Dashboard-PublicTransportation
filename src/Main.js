@@ -6,6 +6,7 @@ import './Main.css';
 
 function Main() {
     const [selectedNumber, setSelectedNumber] = useState(null);
+    const aboutpage = false;
 
     const handleButtonClicked = (number) => {
         console.log(`Button clicked: ${number}`);
