@@ -16,8 +16,9 @@
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 32px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
+    margin: 20px;
   }

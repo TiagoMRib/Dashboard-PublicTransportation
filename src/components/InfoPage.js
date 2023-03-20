@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import LineButton from './LineButton';
 import BarChart from './BarChart';
+import './InfoPage.css';
 
-function InfoPage() {
+function InfoPage(props) {
 
     const data = [
         { x: "Apples", y: 10},
@@ -15,6 +16,7 @@ function InfoPage() {
     return (
       
         <div className="content">
+              <h1 classname= "selectedline" > Linha <LineButton number={props.number}/></h1>
               <BarChart data={data} width={600} height={400}/>
               
         </div>
