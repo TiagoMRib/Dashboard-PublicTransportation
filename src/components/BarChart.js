@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 
-const BarGraph = ({ data, width, height }) => {
+const BarGraph = ({ data, width, height }) => { 
   const ref = useRef();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const BarGraph = ({ data, width, height }) => {
 
     svg
       .select(".x-axis")
-      .attr("transform", 'translate(0, ${innerHeight})')
+      .attr("transform", 'translate(${innerHeight}, 0)')
       .call(d3.axisBottom(xScale));
 
     svg
