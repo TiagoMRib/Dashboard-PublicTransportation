@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import LineButton from './components/LineButton';
 import InfoPage from './components/InfoPage';
+import './Main.css';
 
 function Main() {
     const [selectedNumber, setSelectedNumber] = useState(null);
@@ -19,11 +20,12 @@ function Main() {
         <Header handleButtonClick={handleButtonClicked} />
         {selectedNumber ? (
         <div className="page">
-          <h1>Line {selectedNumber}</h1>
-          <InfoPage />
+          <InfoPage number={selectedNumber} />
         </div>
       ) : (
+        
         <div className="content">
+              <h1> Lines </h1>
               <LineButton number={203} onClick={() => handleButtonClicked(203)} />
               <LineButton number={204} onClick={() => handleButtonClicked(204)} />
               <LineButton number={205} onClick={() => handleButtonClicked(205)} />

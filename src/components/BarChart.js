@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 
-const BarGraph = ({ data, width, height }) => {
+const BarGraph = ({ data, width, height }) => { 
   const ref = useRef();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const BarGraph = ({ data, width, height }) => {
 
     svg
       .select(".x-axis")
-      .attr("transform", `translate(0, ${innerHeight})`)
+      .attr("transform", 'translate(${innerHeight}, 0)')
       .call(d3.axisBottom(xScale));
 
     svg
@@ -43,7 +43,6 @@ const BarGraph = ({ data, width, height }) => {
       .attr("height", (d) => innerHeight - yScale(d.y));
 
     // add labels below bars
-    /*
     svg
       .selectAll(".label")
       .data(data)
@@ -53,19 +52,19 @@ const BarGraph = ({ data, width, height }) => {
       .attr("x", (d) => xScale(d.x) + xScale.bandwidth() / 2)
       .attr("y", innerHeight + margin.bottom / 2)
       .attr("text-anchor", "middle")
-      .text((d) => d.x); */
+      .text((d) => d.label);
 
     // add value labels on the left side
-    const valueGroup = svg
-      .append("g")
-      .attr("transform", `translate(${margin.left}, 0)`);
+    const valueGroup = svg.append("g").attr("transform", `translate(${margin.left}, 0)`);
 
-    const yAxis = d3.axisLeft(yScale).ticks(5);
+    const valueScale = d3
+      .scaleLinear()
+      .domain([0, d3.max(data, (d) => d.y)])
+      .range([innerHeight, 0]);
 
-    valueGroup
-      .append("g")
-      .attr("class", "y-axis")
-      .call(yAxis);
+    const yAxis = d3.axisLeft(valueScale).ticks(5);
+
+    valueGroup.append("g").attr("class", "value-axis").call(yAxis);
 
     valueGroup
       .selectAll(".value")
@@ -74,10 +73,11 @@ const BarGraph = ({ data, width, height }) => {
       .append("text")
       .attr("class", "value")
       .attr("x", -margin.left / 2)
-      .attr("y", (d) => yScale(d.y))
+      .attr("y", (d) => valueScale(d.y))
       .attr("text-anchor", "end")
       .text((d) => d.y);
-  }, [data, width, height]);
+
+  }, []); // <- missing ")" here
 
   return (
     <svg ref={ref} width={width} height={height}>
@@ -85,5 +85,6 @@ const BarGraph = ({ data, width, height }) => {
     </svg>
   );
 };
+
 
 export default BarGraph;
