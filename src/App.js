@@ -1,14 +1,17 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
-//import BarChart from './components/BarChart';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Main from './Main';
+import InfoPage from './components/InfoPage';
 
 function App() {
   return (
-    <div>
-      <Main />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main/>} />
+        <Route path="/lines" element={<InfoPage/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
