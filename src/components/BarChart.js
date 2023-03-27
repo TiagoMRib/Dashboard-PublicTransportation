@@ -105,7 +105,7 @@ const BarGraph = ({ data, width, height }) => {
 
   const yScale = useMemo(() =>
     d3.scaleLinear()
-      .domain([0, d3.max(data, (d) => d.y)])
+      .domain([0, d3.max(data, (d) => d.y) * 1.1]) // add 10% padding to the top value
       .range([height, 0]),
     [data, height]
   );
@@ -150,7 +150,7 @@ const BarGraph = ({ data, width, height }) => {
       .attr("transform", `translate(${margin.left}, 0)`);
 
     const valueScale = d3.scaleLinear()
-      .domain([0, d3.max(data, (d) => d.y)])
+      .domain([0, d3.max(data, (d) => d.y) * 1.1]) // add 10% padding to the top value
       .range([innerHeight, 0]);
 
     const yAxis = d3.axisLeft(valueScale).ticks(5);
@@ -160,8 +160,8 @@ const BarGraph = ({ data, width, height }) => {
       .attr("class", "value-axis")
       .call(yAxis);
 
-    const values = valueGroup.selectAll(".value")
-      .data(data);
+    /*const values = valueGroup.selectAll(".value")
+      .data(data); 
 
     values.enter().append("text")
       .attr("class", "value")
@@ -169,9 +169,11 @@ const BarGraph = ({ data, width, height }) => {
       .attr("x", -margin.left / 2)
       .attr("y", (d) => valueScale(d.y))
       .attr("text-anchor", "end")
-      .text((d) => d.y);
+      .text((d) => d.y); */
 
   }, [data, width, height]); 
+
+
 
   return (
     <svg ref={ref} width={width} height={height}>

@@ -8,7 +8,7 @@ function InfoPage(props) {
     const data = [
         { x: "Apples", y: 10},
         { x: "Oranges", y: 20},
-        { x: "Grapes", y: 3},
+        { x: "Grapes", y: 8},
         { x: "Bananas", y: 15},
       ];
     
