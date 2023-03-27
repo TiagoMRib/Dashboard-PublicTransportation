@@ -8,8 +8,8 @@ const BarGraph = ({ data, width, height }) => {
     const svg = d3.select(ref.current);
 
     const margin = { top: 20, right: 60, bottom: 60, left: 60 };
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
+    const innerWidth = width; //- margin.left - margin.right;
+    const innerHeight = height; // - margin.top - margin.bottom;
 
     const xScale = d3
       .scaleBand()
@@ -40,7 +40,7 @@ const BarGraph = ({ data, width, height }) => {
       .attr("x", (d) => xScale(d.x))
       .attr("width", xScale.bandwidth())
       .attr("y", (d) => yScale(d.y))
-      .attr("height", (d) => innerHeight - yScale(d.y));
+      .attr("height", (d) => innerHeight - yScale(d.y)); 
 
     // add labels below bars
     svg
@@ -50,9 +50,10 @@ const BarGraph = ({ data, width, height }) => {
       .append("text")
       .attr("class", "label")
       .attr("x", (d) => xScale(d.x) + xScale.bandwidth() / 2)
-      .attr("y", innerHeight + margin.bottom / 2)
+      .attr("y", height - margin.bottom / 2 + 5) // adjust the y-coordinate
       .attr("text-anchor", "middle")
       .text((d) => d.label);
+
 
     // add value labels on the left side
     const valueGroup = svg.append("g").attr("transform", `translate(${margin.left}, 0)`);
@@ -77,7 +78,7 @@ const BarGraph = ({ data, width, height }) => {
       .attr("text-anchor", "end")
       .text((d) => d.y);
 
-  }, []); // <- missing ")" here
+  }, []); 
 
   return (
     <svg ref={ref} width={width} height={height}>
