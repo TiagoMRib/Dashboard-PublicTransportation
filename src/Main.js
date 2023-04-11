@@ -5,6 +5,10 @@ import InfoPage from './components/InfoPage';
 import './Main.css';
 
 function Main() {
+
+    const json_lineData = '[ { "number": 203 },{ "number": 204 }, { "number": 205 }, { "number": 504 }, { "number": 701 } ]';
+    const lineData = JSON.parse(json_lineData);
+
     const [selectedNumber, setSelectedNumber] = useState(null);
     const aboutpage = false;
 
@@ -27,11 +31,13 @@ function Main() {
         
         <div className="content">
               <h1> Lines </h1>
-              <LineButton number={203} onClick={() => handleButtonClicked(203)} />
-              <LineButton number={204} onClick={() => handleButtonClicked(204)} />
-              <LineButton number={205} onClick={() => handleButtonClicked(205)} />
-              <LineButton number={504} onClick={() => handleButtonClicked(504)} />
-              <LineButton number={701} onClick={() => handleButtonClicked(701)} />
+              {lineData.map(line => (
+              <LineButton
+                key={line.number}
+                number={line.number}
+                onClick={() => handleButtonClicked(line.number)}
+              />
+              ))}
         </div>
         )}
       </div>
