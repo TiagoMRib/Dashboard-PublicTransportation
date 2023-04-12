@@ -114,7 +114,7 @@ const BarGraph = ({ data, width, height }) => {
     const svg = d3.select(ref.current);
 
     const margin = { top: 20, right: 60, bottom: 60, left: 60 };
-    const innerWidth = width - margin.left - margin.right;
+    //const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
     svg.select(".x-axis")
@@ -171,7 +171,7 @@ const BarGraph = ({ data, width, height }) => {
       .attr("text-anchor", "end")
       .text((d) => d.y); */
 
-  }, [data, width, height]); 
+  }, [data, width, height, xScale, yScale]); 
 
 
 

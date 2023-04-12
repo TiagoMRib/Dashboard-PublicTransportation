@@ -65,7 +65,7 @@ function InfoPage(props) {
                     <BarChart data={data} width={600} height={400}/>
                     <LineChart data={modifiedData} width={600} height={400}/>    
                 </div>
-                );
+            );
         }
 }
 
