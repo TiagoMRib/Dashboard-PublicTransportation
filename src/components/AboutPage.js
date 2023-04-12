@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AboutPage.css';
 
-function InfoPage() {
+function AboutPage() {
     
   
     return (

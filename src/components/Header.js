@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css';
-//import { Link } from "react-router-dom";
 
-function Header({ handleButtonClick }) {
-  
-    return (
-      <div className="header">
-        <div className="header-left">
-          <span className="header-item">Opt</span>
-          <span className="header-item" onClick={() => handleButtonClick(null)}>Linhas</span>
-          
-        </div>
-        <div className="header-right">
-          <span className="header-item">Sobre</span>
-        </div>
+function Header({ handleButtonClick, handleAboutClick, handleReturnClick }) {
+  return (
+    <div className="header">
+      <div className="header-left">
+        <span className="header-item">Opt</span>
+        <span className="header-item" onClick={() => handleButtonClick(null)}>
+          Linhas
+        </span>
       </div>
-    );
-  }
+      <div className="header-right">
+        <span className="header-item" onClick={handleAboutClick}>
+          Sobre
+        </span>
+        {handleReturnClick && (
+          <span className="header-item" onClick={handleReturnClick}>
+            Voltar
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default Header;
