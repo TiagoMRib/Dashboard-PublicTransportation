@@ -1,0 +1,16 @@
+.content {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .selectedline {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .graph {
+    display: inline-block;
+    width: 48%; 
+    margin: 1%;
+    vertical-align: top;
+  }

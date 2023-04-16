@@ -46,7 +46,7 @@ function Main() {
           <AboutPage />
         </div>
       ) : (
-        <div className="content">
+        <div className="maincontent">
           <h1> Lines </h1>
           {lineData.map((line) => (
             <LineButton

@@ -4,6 +4,7 @@ import BarChart from './BarChart';
 import MyBarChart from './MyBarChart';
 import './InfoPage.css';
 import LineChart from './LineChart';
+import ScatterPlot from './ScatterPlot';
 
 function InfoPage(props) {
       /*const data = [
@@ -56,14 +57,30 @@ function InfoPage(props) {
                 <div className="content">
                     <h1 className= "selectedline" > Linha <LineButton number={props.number}/></h1>
                     <MyBarChart data={data} width={400} height={400}/>
+                    <ScatterPlot data={modifiedData} width={600} height={400}/>
                 </div>
             );
         default:
             return (
                 <div className="content">
                     <h1 classname= "selectedline" > Linha <LineButton number={props.number}/></h1>
-                    <BarChart data={data} width={600} height={400}/>
-                    <LineChart data={modifiedData} width={600} height={400}/>    
+                    <div className="graph">
+                        <h2 classname="label"> Graph </h2>
+                        <BarChart data={data} width={600} height={400}/>
+                    </div>
+                    <div className="graph">
+                        <h2 classname="label"> Graph </h2>
+                        <LineChart data={modifiedData} width={600} height={400}/> 
+                    </div>
+                    <div className="graph">
+                        <h2 classname="label"> Graph </h2>
+                        <ScatterPlot data={modifiedData} width={600} height={400}/> 
+                    </div>
+                    <div className="graph">
+                        <h2 classname="label"> Graph </h2>
+                        <MyBarChart data={data} width={600} height={400}/>
+                    </div>
+                       
                 </div>
             );
         }

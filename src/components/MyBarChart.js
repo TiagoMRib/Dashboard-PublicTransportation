@@ -34,7 +34,7 @@ const MyBarChart = ({data, width, height}) => {
           .attr('text-anchor', 'middle')
           .attr('x', innerWidth / 2)
           .attr('y', innerHeight + margin.top + 15)
-          .text('Fruits');
+          .text('Label');
     
         g.append('g')
           .attr('class', 'axis axis--y')
