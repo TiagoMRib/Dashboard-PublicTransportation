@@ -1,5 +1,5 @@
 import React from 'react';
-import './LineButton.css';
+import './styles/LineButton.css';
 
 function LineButton(props) {
 
