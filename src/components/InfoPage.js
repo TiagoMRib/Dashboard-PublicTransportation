@@ -15,6 +15,8 @@ function InfoPage(props) {
           { x: "Bananas", y: 15},
         ];*/
 
+      const path = ['s bento', 'combatentes', 'hospital s joao', 'cena', 'exemplo', 'aaaaaaaaaaaa'];
+
       const jsonData = '[{"x": "A", "y": 10, "label": "Label A"}, {"x": "B", "y": 20, "label": "Label B"}, {"x": "C", "y": 30, "label": "Label C"}]';
 
       const data = JSON.parse(jsonData);
@@ -80,6 +82,7 @@ function InfoPage(props) {
             return (
                 <div className="content">
                     <h1 classname= "selectedline" > Linha <LineButton number={props.number}/></h1>
+                    <Path stops={path}/>
                     <div className="graph">
                         <h2 classname="label"> Graph </h2>
                         <BarChart data={data} width={600} height={400}/>
