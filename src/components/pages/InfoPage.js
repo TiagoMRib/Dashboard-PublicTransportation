@@ -1,11 +1,11 @@
 import React from 'react';
-import LineButton from '../LineButton';
-import BarChart from '../BarChart';
-import MyBarChart from '../MyBarChart';
-import './InfoPage.css';
-import LineChart from '../LineChart';
-import ScatterPlot from '../ScatterPlot';
-import StackedBarChart from '../StackedBarChart';
+import LineButton from '../section/LineButton';
+import BarChart from '../section/charts/BarChart';
+import MyBarChart from '../section/charts/MyBarChart';
+import './styles/InfoPage.css';
+import LineChart from '../section/charts/LineChart';
+import ScatterPlot from '../section/charts/ScatterPlot';
+import StackedBarChart from '../section/charts/StackedBarChart';
 
 function InfoPage(props) {
       /*const data = [
