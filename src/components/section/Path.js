@@ -1,5 +1,5 @@
 import React from 'react';
-import './Path.css';
+import './styles/Path.css';
 
 const Path = ({ stops }) => {
   const colors = ['#ff6b6b', '#ffb347', '#4ecdc4', '#7f7f7f', '#8e44ad'];

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import LineButton from './components/LineButton';
-import InfoPage from './components/InfoPage';
-import AboutPage from './components/AboutPage';
+import Header from './components/section/Header';
+import LineButton from './components/section/LineButton';
+import InfoPage from './components/pages/InfoPage';
+import AboutPage from './components/pages/AboutPage';
 import './Main.css';
 
 function Main() {

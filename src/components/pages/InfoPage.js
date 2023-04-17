@@ -6,6 +6,7 @@ import './styles/InfoPage.css';
 import LineChart from '../section/charts/LineChart';
 import ScatterPlot from '../section/charts/ScatterPlot';
 import StackedBarChart from '../section/charts/StackedBarChart';
+import Path from '../section/Path'
 
 function InfoPage(props) {
       /*const data = [
