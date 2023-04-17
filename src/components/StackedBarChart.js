@@ -1,7 +1,7 @@
 import {React, useRef, useEffect} from "react";
 import * as d3 from "d3";
 
-const MyBarChart = ({data, width, height}) => {
+const StackedBarChart = ({data, width, height}) => {
     const chartRef = useRef(null);
 
     useEffect(() => {
@@ -66,4 +66,4 @@ const MyBarChart = ({data, width, height}) => {
     );
 };
 
-export default MyBarChart;
+export default StackedBarChart;  

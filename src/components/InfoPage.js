@@ -5,6 +5,7 @@ import MyBarChart from './MyBarChart';
 import './InfoPage.css';
 import LineChart from './LineChart';
 import ScatterPlot from './ScatterPlot';
+import StackedBarChart from './StackedBarChart';
 
 function InfoPage(props) {
       /*const data = [
@@ -43,20 +44,35 @@ function InfoPage(props) {
         ...d,
         xValue: new Date(`1970-01-01T${d.x}:00`).getTime() // convert time to numeric value
       }));
+
+    /*const stackData = [
+        {x: "203", y: [{v: 35, u: 40}]},
+        {x: "204", y: [{v: 40, u: 20}]},
+        {x: "205", y: [{v: 30, u: 20}]},
+        {x: "206", y: [{v: 10, u: 60}]}
+    ]*/
     
+    const stackData = [
+        {x: "203", y: 35, z: 40},
+        {x: "204", y: 40, z: 20},
+        {x: "205", y: 30, z: 20},
+        {x: "206", y: 10, z: 60}
+    ]
+
       switch(props.number){
         case 203:
             return (
                 <div className="content">
                     <h1 className= "selectedline" > Linha <LineButton number={props.number}/></h1>
                     <BarChart data={data} width={600} height={400}/>
+                    <StackedBarChart data={stackData} width={600} height={400}/>    
                 </div>
             );
         case 204:
             return (
                 <div className="content">
                     <h1 className= "selectedline" > Linha <LineButton number={props.number}/></h1>
-                    <MyBarChart data={data} width={400} height={400}/>
+                    <MyBarChart data={data} width={600} height={400}/>
                     <ScatterPlot data={modifiedData} width={600} height={400}/>
                 </div>
             );
