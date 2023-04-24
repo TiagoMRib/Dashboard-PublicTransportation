@@ -62,13 +62,23 @@ function InfoPage(props) {
         {x: "206", y: 10, z: 60}
     ]
 
+    /*const schedules = [
+        {}
+    ]
+
+    const impData = [
+        {scheduleID:'2', timePoints: [
+            {t0: 0, tf: 3600, value: 35}
+        ]}
+    ]*/
+
       switch(props.number){
         case 203:
             return (
                 <div className="content">
                     <h1 className= "selectedline" > Linha <LineButton number={props.number}/></h1>
                     <BarChart data={data} width={600} height={400}/>
-                    <StackedBarChart data={stackData} width={600} height={400}/>    
+                    <StackedBarChart data={stackData} width={600} height={400}/>
                 </div>
             );
         case 204:
