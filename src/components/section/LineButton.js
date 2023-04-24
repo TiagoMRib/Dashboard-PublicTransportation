@@ -24,4 +24,20 @@ function LineButton(props) {
   );
 }
 
-export default LineButton;
+function IndicatorButton(props) {
+
+  const handleClick = () => {
+      console.log(`Button clicked: ${props.id}`);
+      props.onClick();
+    };
+
+  let buttonClass = "blue-button";
+
+  return (
+    <button className="default" onClick={handleClick}>
+      {props.name}
+    </button>
+  );
+}
+
+export { LineButton, IndicatorButton };

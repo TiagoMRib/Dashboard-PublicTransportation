@@ -1,11 +1,31 @@
+
+import axios from 'axios';
+
 import React, { useState } from 'react';
 import Header from './components/section/Header';
-import LineButton from './components/section/LineButton';
+import { LineButton, IndicatorButton } from './components/section/LineButton';
 import InfoPage from './components/pages/InfoPage';
 import AboutPage from './components/pages/AboutPage';
 import './Main.css';
 
 function Main() {
+
+  //axios.defaults.baseURL = 'http://192.168.7.168:5001';
+ axios.get('http://192.168.7.168:5001/schedules/29418/trips/hours')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+
+
+
   const json_lineData = '[ { "number": 203 },{ "number": 204 }, { "number": 205 }, { "number": 504 }, { "number": 701 } ]';
   const lineData = JSON.parse(json_lineData);
 

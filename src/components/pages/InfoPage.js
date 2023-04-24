@@ -1,5 +1,5 @@
 import React from 'react';
-import LineButton from '../section/LineButton';
+import { LineButton, IndicatorButton } from '../section/LineButton';
 import BarChart from '../section/charts/BarChart';
 import MyBarChart from '../section/charts/MyBarChart';
 import './styles/InfoPage.css';
