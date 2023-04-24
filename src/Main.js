@@ -6,6 +6,7 @@ import Header from './components/section/Header';
 import { LineButton, IndicatorButton } from './components/section/LineButton';
 import InfoPage from './components/pages/InfoPage';
 import AboutPage from './components/pages/AboutPage';
+import IndicatorsPage from './components/pages/IndicatorsPage';
 import './Main.css';
 
 function Main() {
@@ -31,16 +32,22 @@ function Main() {
 
   const [selectedNumber, setSelectedNumber] = useState(null);
   const [aboutPage, setAboutPage] = useState(false);
+  const [iPage, setIPage] = useState(false);
 
   const handleButtonClicked = (number) => {
     console.log(`Button clicked: ${number}`);
     setSelectedNumber(number);
     setAboutPage(false);
+    setIPage(false);
     console.log(`Selected number: ${selectedNumber}`);
   };
 
   const handleAboutClicked = () => {
     setAboutPage(true);
+  };
+
+  const handleIndicatorsClicked = () => {
+    setIPage(true);
   };
 
   const handleReturnClicked = () => {
@@ -55,7 +62,9 @@ function Main() {
       <Header
         handleButtonClick={handleButtonClicked}
         handleAboutClick={handleAboutClicked}
+        handleIndicatorsClick={handleIndicatorsClicked}
         handleReturnClick={handleReturnClicked}
+
       />
       {selectedNumber ? (
         <div className="page">
@@ -64,6 +73,10 @@ function Main() {
       ) : aboutPage ? (
         <div className="page">
           <AboutPage />
+        </div>
+      ): iPage ? (
+        <div className="page">
+          <IndicatorsPage />
         </div>
       ) : (
         <div className="maincontent">

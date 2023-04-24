@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/IndicatorsPage.css';
 import StatsPage from './StatsPage';
+import { IndicatorButton } from '../section/LineButton';
 
 
 function IndicatorsPage() {
@@ -23,20 +24,20 @@ function IndicatorsPage() {
       
           <div className="maincontent">
             <h1> Indicadores </h1>
-              <LineButton
+              <IndicatorButton
                 id={1}
                 name={"Primeiro Indicador"}
-                onClick={() => handleButtonClicked(id)}
+                onClick={() => handleButtonClicked(1)}
               />
-              <LineButton
+              <IndicatorButton
                 id={2}
                 name={"outro Indicador"}
-                onClick={() => handleButtonClicked(id)}
+                onClick={() => handleButtonClicked(2)}
               />
-              <LineButton
+              <IndicatorButton
                 id={3}
                 name={"a Indicador"}
-                onClick={() => handleButtonClicked(id)}
+                onClick={() => handleButtonClicked(3)}
               />
           </div>
         )
