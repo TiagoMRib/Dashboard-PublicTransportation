@@ -33,12 +33,15 @@ function StatsPage(props) {
       switch(props.id){
         case 1:
             return (
-                <div className="content">
-                    <div className="sidebar">
-                        {/* Sidebar content, e.g. dropdown menus and checkboxes */}
-                    </div>
-                    <div className="graphs">
-                        {/* Main content area */}
+                <div className="content" style={{display: 'grid'}}>
+                    <h1>{props.name}</h1>
+                    <div className="container" style={{display: 'flex'}}>
+                        <div className="sidebar">
+                            {/* Sidebar content, e.g. dropdown menus and checkboxes */}
+                        </div>
+                        <div className="graphs">
+                            {/* Main content area */}
+                        </div>
                     </div>
                 </div>
             );

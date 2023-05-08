@@ -8,9 +8,9 @@ function IndicatorsPage() {
   
     const [selectedNumber, setSelectedNumber] = useState(null);
   
-    const handleButtonClicked = (id) => {
+    const handleButtonClicked = (id, name) => {
       console.log(`Button clicked: ${id}`);
-      setSelectedNumber(id);
+      setSelectedNumber({id,name});
       console.log(`Selected number: ${id}`);
     };
   
@@ -18,27 +18,29 @@ function IndicatorsPage() {
       <div>
         {selectedNumber ? (
         <div className="page">
-          <StatsPage id={selectedNumber}/>
+          <StatsPage id={selectedNumber.id} name={selectedNumber.name}/>
         </div>
         ) : (
       
-          <div className="maincontent">
+          <div className="maincontent" style={{textAlign: 'center'}}>
             <h1> Indicadores </h1>
+            <div className="button-group" style={{ display: 'flex', justifyContent: 'center' }}>
               <IndicatorButton
                 id={1}
-                name={"Primeiro Indicador"}
-                onClick={() => handleButtonClicked(1)}
+                name={"Viagens/hora numa megalinha em diferentes horários"}
+                onClick={() => handleButtonClicked(1, "Viagens/hora numa megalinha em diferentes horários")}
               />
               <IndicatorButton
                 id={2}
-                name={"outro Indicador"}
-                onClick={() => handleButtonClicked(2)}
+                name={"Distância útil e em vazio numa megalinha"}
+                onClick={() => handleButtonClicked(2, "Distância útil e em vazio numa megalinha")}
               />
               <IndicatorButton
                 id={3}
-                name={"a Indicador"}
-                onClick={() => handleButtonClicked(3)}
+                name={"Indicador 3"}
+                onClick={() => handleButtonClicked(3, "Indicador 3")}
               />
+              </div>
           </div>
         )
 

@@ -9,6 +9,7 @@ function Header({ handleButtonClick, handleAboutClick, handleIndicatorsClick, ha
         <span className="header-item" onClick={() => handleButtonClick(null)}>
           Linhas
         </span>
+        <span className="header-item" onClick={handleIndicatorsClick}>Indicadores</span>
       </div>
       <div className="header-right">
         <span className="header-item" onClick={handleAboutClick}>
