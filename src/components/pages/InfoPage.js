@@ -18,8 +18,6 @@ function InfoPage(props) {
       const data = JSON.parse(jsonData);
 
 
-      const json_linedata = '[  {"x":"12:30","y":10,"z":"Monday"},  {"x":"13:30","y":20,"z":"Monday"},  {"x":"17:40","y":15,"z":"Monday"},  {"x":"19:00","y":18,"z":"Monday"},  {"x":"13:00","y":20,"z":"Tuesday"},  {"x":"14:00","y":20,"z":"Tuesday"},  {"x":"9:00","y":8,"z":"Friday"},  {"x":"10:00","y":8,"z":"Friday"},  {"x":"12:00","y":17,"z":"Friday"},  {"x":"19:00","y":8,"z":"Friday"}]';
-
       const linedata = {
         "data": [
           {
@@ -144,23 +142,24 @@ function InfoPage(props) {
           }
         ],
         "schedule": "29418"
-      }//JSON.parse(json_linedata);
+      }
+      
+      /////////// FOR OLD LINECHART
+      const json_linedata = '[  {"x":"12:30","y":10,"z":"Monday"},  {"x":"13:30","y":20,"z":"Monday"},  {"x":"17:40","y":15,"z":"Monday"},  {"x":"19:00","y":18,"z":"Monday"},  {"x":"13:00","y":20,"z":"Tuesday"},  {"x":"14:00","y":20,"z":"Tuesday"},  {"x":"9:00","y":8,"z":"Friday"},  {"x":"10:00","y":8,"z":"Friday"},  {"x":"12:00","y":17,"z":"Friday"},  {"x":"19:00","y":8,"z":"Friday"}]';
+
+      const old_linedata = JSON.parse(json_linedata);
     
 
 
-      //const sortedData = linedata.sort((a, b) => a.xValue - b.xValue);
+      const sortedData = old_linedata.sort((a, b) => a.xValue - b.xValue);
 
-      /*const modifiedData = sortedData.map(d => ({
+      const modifiedData = sortedData.map(d => ({
         ...d,
         xValue: new Date(`1970-01-01T${d.x}:00`).getTime() // convert time to numeric value
-      }));*/
+      }));
 
-    /*const stackData = [
-        {x: "203", y: [{v: 35, u: 40}]},
-        {x: "204", y: [{v: 40, u: 20}]},
-        {x: "205", y: [{v: 30, u: 20}]},
-        {x: "206", y: [{v: 10, u: 60}]}
-    ]*/
+      ////////////////////////////////
+
     
     const stackData = [
         {x: "203", y: 35, z: 40},
@@ -168,16 +167,6 @@ function InfoPage(props) {
         {x: "205", y: 30, z: 20},
         {x: "206", y: 10, z: 60}
     ]
-
-    /*const schedules = [
-        {}
-    ]
-
-    const impData = [
-        {scheduleID:'2', timePoints: [
-            {t0: 0, tf: 3600, value: 35}
-        ]}
-    ]*/
 
       switch(props.number){
         case 203:
@@ -211,6 +200,7 @@ function InfoPage(props) {
                     </div>
                     <div className="graph">
                         <h2 classname="label"> Graph </h2>
+                        <LineChart data={modifiedData} width={600} height={400}/>
                     </div>
                     <div className="graph">
                         <h2 classname="label"> Graph </h2>
