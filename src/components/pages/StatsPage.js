@@ -137,6 +137,132 @@ function StatsPage(props) {
         "schedule": "29418"
       }
 
+      const linedata2 = {
+        "data": [
+          {
+            "tf": 3600,
+            "ti": 0,
+            "value": 9
+          },
+          {
+            "tf": 7200,
+            "ti": 3600,
+            "value": 3
+          },
+          {
+            "tf": 10800,
+            "ti": 7200,
+            "value": 8
+          },
+          {
+            "tf": 14400,
+            "ti": 10800,
+            "value": 2
+          },
+          {
+            "tf": 18000,
+            "ti": 14400,
+            "value": 6
+          },
+          {
+            "tf": 21600,
+            "ti": 18000,
+            "value": 7
+          },
+          {
+            "tf": 25200,
+            "ti": 21600,
+            "value": 1
+          },
+          {
+            "tf": 28800,
+            "ti": 25200,
+            "value": 5
+          },
+          {
+            "tf": 32400,
+            "ti": 28800,
+            "value": 10
+          },
+          {
+            "tf": 36000,
+            "ti": 32400,
+            "value": 4
+          },
+          {
+            "tf": 39600,
+            "ti": 36000,
+            "value": 4
+          },
+          {
+            "tf": 43200,
+            "ti": 39600,
+            "value": 4
+          },
+          {
+            "tf": 46800,
+            "ti": 43200,
+            "value": 4
+          },
+          {
+            "tf": 50400,
+            "ti": 46800,
+            "value": 4
+          },
+          {
+            "tf": 54000,
+            "ti": 50400,
+            "value": 4
+          },
+          {
+            "tf": 57600,
+            "ti": 54000,
+            "value": 4
+          },
+          {
+            "tf": 61200,
+            "ti": 57600,
+            "value": 4
+          },
+          {
+            "tf": 64800,
+            "ti": 61200,
+            "value": 4
+          },
+          {
+            "tf": 68400,
+            "ti": 64800,
+            "value": 4
+          },
+          {
+            "tf": 72000,
+            "ti": 68400,
+            "value": 4
+          },
+          {
+            "tf": 75600,
+            "ti": 72000,
+            "value": 3
+          },
+          {
+            "tf": 79200,
+            "ti": 75600,
+            "value": 2
+          },
+          {
+            "tf": 82800,
+            "ti": 79200,
+            "value": 6
+          },
+          {
+            "tf": 86400,
+            "ti": 82800,
+            "value": 9
+          }
+        ],
+        "schedule": "29410"
+      };
+
     switch (props.id) {
         case 1:
             return (
@@ -207,7 +333,7 @@ function StatsPage(props) {
                             
                         <p>Line selected: {selectedMegaline1}</p>
                         <h2 classname="label"> Graph </h2>
-                        <AltLineChart data={linedata}/> 
+                        <AltLineChart data={linedata} data2={linedata2}/> 
                         </div>
                         ) : (
                             <p>No megaline selected</p>
