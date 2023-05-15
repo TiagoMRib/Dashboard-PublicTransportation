@@ -76,7 +76,7 @@ function Main() {
         </div>
       ): iPage ? (
         <div className="page">
-          <IndicatorsPage />
+          <IndicatorsPage handleIndicatorsClicked={handleIndicatorsClicked} />
         </div>
       ) : (
         <div className="maincontent">
