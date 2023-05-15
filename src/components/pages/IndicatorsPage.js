@@ -13,12 +13,16 @@ function IndicatorsPage() {
       setSelectedNumber({id,name});
       console.log(`Selected number: ${id}`);
     };
+
+    const handleReturnClicked = () => {
+      setSelectedNumber(null);
+    };
   
     return (
       <div>
         {selectedNumber ? (
         <div className="page">
-          <StatsPage id={selectedNumber.id} name={selectedNumber.name}/>
+          <StatsPage id={selectedNumber.id} name={selectedNumber.name} onReturnClick={handleReturnClicked}/>
         </div>
         ) : (
       
