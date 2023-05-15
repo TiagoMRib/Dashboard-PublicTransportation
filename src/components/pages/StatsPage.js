@@ -275,7 +275,7 @@ function StatsPage(props) {
     switch (props.id) {
         case 1:
             return (
-                <div className="content" style={{ display: 'grid' }}>
+                <div className="content" style={{ display: 'grid', gridTemplateRows: '1fr 5fr'}}>
                     <h1>{props.name}</h1>
                     <div className="container" style={{ display: 'flex' }}>
                         <div className="sidebar">
